@@ -32,10 +32,7 @@ var type = '';
 var num = '';
 var textURL = 'http://180.76.244.130:3000/database/writeTextDB'
 
-
-
-
-function click_submit(textarea,num){
+function click_submit(){
     id = document.getElementById("gameid").value
     type = document.getElementById("pageType").value
     loc = document.getElementById("location").value   
@@ -51,7 +48,9 @@ function click_submit(textarea,num){
 			location:loc,
 			text: text_content
 		},
-		success:function(data){$("#alerts").innerHTML = data},
-		dataType:'json'
+		success:function(data){
+			//alert('afd')
+			document.getElementById("response").innerHTML = data
+		}
 	});
 }
