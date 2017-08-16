@@ -51,7 +51,7 @@ function click_submit(textarea,num){
 			location:loc,
 			text: text_content
 		},
-		success:function(data){$("#alerts").value = data},
+		success:function(data){$("#alerts").innerHTML = data},
 		dataType:'json'
 	});
 }
