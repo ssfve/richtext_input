@@ -50,6 +50,7 @@ function click_submit(){
 		},
 		success:function(data){
 			//alert('afd')
+			document.getElementById("response").innerHTML = 'writing...'
 			document.getElementById("response").innerHTML = data
 		}
 	});
