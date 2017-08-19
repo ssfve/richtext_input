@@ -40,6 +40,7 @@ function click_submit(){
 	//alert(id)
 	//alert(type)
 	//alert(text_content)
+	document.getElementById("response").innerHTML = ''
 	$.ajax({
 		url: textURL,
 		data:{
@@ -50,7 +51,6 @@ function click_submit(){
 		},
 		success:function(data){
 			//alert('afd')
-			document.getElementById("response").innerHTML = 'writing...'
 			document.getElementById("response").innerHTML = data
 		}
 	});
