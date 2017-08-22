@@ -32,7 +32,7 @@ var type = '';
 var num = '';
 var textURL = 'http://180.76.244.130:3000/database/writeTextDB'
 
-function click_submit(){
+function click_submit_to(){
     id = document.getElementById("gameid").value
     type = document.getElementById("pageType").value
     loc = document.getElementById("location").value   
@@ -55,3 +55,46 @@ function click_submit(){
 		}
 	});
 }
+
+function click_submit_from(){
+    var textURL = 'http://180.76.244.130:3000/games/getTextInfo'
+    id = document.getElementById("gameid").value
+    type = document.getElementById("pageType").value
+    loc = document.getElementById("location").value   
+    text_content = document.getElementById("editor").innerHTML
+	//alert(id)
+	//alert(type)
+	//alert(text_content)
+	document.getElementById("response").innerHTML = ''
+	$.ajax({
+		url: textURL,
+		data:{
+			gameid:id,
+			pageType:type,
+			location:loc
+		},
+		dataType:'json',
+		success:function(data){
+			//alert(json.text_content)
+			//alert(json.text_content)
+			document.getElementById('editor').innerHTML = data.text_content
+			document.getElementById("response").innerHTML = 'Success'
+		},
+		error:function(data){
+			alert('记录不存在')
+		},
+	});
+}
+
+var writeTextbox = function(json) {
+    try { 
+    	if(json.text_content !== null){
+    		document.getElementById('editor').innerHTML = json.text_content
+    	}
+    } catch (e) { 
+    	//alert('error')
+    	alert(e)
+    } finally {
+    	
+    } 
+};
