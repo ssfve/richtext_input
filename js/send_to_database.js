@@ -46,7 +46,7 @@ function click_submit_to(){
 		data:{
 			gameid:id,
 			pageType:type,
-			location:loc,
+			lineNum:loc,
 			text: text_content
 		},
 		success:function(data){
@@ -71,7 +71,7 @@ function click_submit_from(){
 		data:{
 			gameid:id,
 			pageType:type,
-			location:loc
+			lineNum:loc
 		},
 		dataType:'json',
 		success:function(data){
